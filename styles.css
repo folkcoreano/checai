@@ -125,6 +125,10 @@ label {
     cursor: pointer;
 }
 
+#line {
+    margin: 0.2em;
+}
+
 .cb {
     border: 0.275em solid var(--fcolor);
     border-radius: 0.0em 0.0em;

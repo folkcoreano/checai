@@ -125,6 +125,6 @@ function UC() {
 
 
 while (i < n) {
-    options.innerHTML += `<label><input type="checkbox" onclick="UC(this)" class="cb select"><h4>${temaSemana[i].item}</h4></label><br>`;
+    options.innerHTML += `<label><input type="checkbox" onclick="UC(this)" class="cb select"><h4 id="line">${temaSemana[i].item}</h4></label><br>`;
     i++;
 };
