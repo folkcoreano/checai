@@ -38,7 +38,7 @@ header {
     word-break: break-all;
     word-wrap: normal;
     margin: 0.5em;
-    padding: 1em;
+    padding: 0.5em;
     z-index: 0;
 }
 
@@ -47,7 +47,7 @@ header {
     border: 0.3em solid var(--fcolor);
     background-color: var(--bcolor);
     border-radius: 1em;
-    padding: 0.5em;
+    padding: 0.3em;
     margin-bottom: -2em;
     z-index: 1;
 }
@@ -91,8 +91,8 @@ header {
 #center2 {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-end
+    justify-items: center;
+    align-items: flex-end;
 }
 
 #theme {
@@ -104,29 +104,32 @@ header {
     justify-content: center;
     align-items: center;
     display: flex;
-    gap: 2em;
 }
 
 #options {
-    justify-content: space-around;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.5em 0.5em;
-    font-size: 1.0em;
-    flex-wrap: wrap;
-    max-width: 75vw;
     display: flex;
-    width: fit-content;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.2em 0.0em;
+    font-size: 1.0em;
+    overflow-x: auto;
+    width: 800px;
+    max-width: 90vw;
+    height: 600px;
+    max-height: 900px;
 }
 
 label {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     cursor: pointer;
 }
 
 #line {
-    margin: 0.2em;
+    margin-right: 0.2em;
+    margin-left: 0.2em;
 }
 
 .cb {
@@ -135,7 +138,6 @@ label {
     -webkit-appearance: none;
     justify-content: center;
     -moz-appearance: none;
-    margin-right: 0.5em;
     aspect-ratio: 1 / 1;
     align-items: center;
     appearance: none;
@@ -156,7 +158,7 @@ label {
 }
 
 .select {
-    margin: 0.1em;
+    margin: 0.0em;
 }
 
 .iconify {
