@@ -123,8 +123,7 @@ function UC() {
     points.textContent = `${numItems}/${temaSemana.length}`;
 };
 
-
 while (i < n) {
-    options.innerHTML += `<label><input type="checkbox" onclick="UC(this)" class="cb select"><h4 id="line">${temaSemana[i].item}</h4></label>`;
+    options.innerHTML += `<label><input type="checkbox" onclick="UC()" class="cb select"><h4 id="line">${temaSemana[i].item}</h4></label>`;
     i++;
 };
