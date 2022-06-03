@@ -4,7 +4,10 @@ const points = document.querySelector("#points");
 const options = document.querySelector("#options");
 const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
 
-const animes = [
+const copy = document.querySelector("#copy");
+
+const tema = [
+    { item: "Animes!" },
     { item: "Dragon Ball" },
     { item: "Attack on Titan" },
     { item: "Fullmetal Alchemist" },
@@ -107,20 +110,40 @@ const animes = [
     { item: "Perfect Blue" },
 ];
 
-var nomeTema = "Animes!";
-var temaSemana = animes;
+var nomeTema = tema[0].item;
+var temaSemana = tema;
 var numItems = allChecked.length;
-var i = 0;
-var n = temaSemana.length;
+var i = 1;
+var n = temaSemana.length - 1;
 
 title.textContent = `Checaí: ${nomeTema}`
 theme.innerHTML = `Tema da Semana: ${nomeTema}<br>Marque os que você viu pelo menos UMA temporada!`;
-points.textContent = `${numItems}/${temaSemana.length}`;
+points.textContent = `${numItems}/${n}`;
+
+copy.addEventListener('click', () => {
+    const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
+    var numItems = allChecked.length;
+    const textCopy = `Hoje no CHECAÍ marquei ${numItems}/${n} no tema ${nomeTema}\n\nhttps://checai.vercel.app`;
+
+    navigator.clipboard.writeText(textCopy);
+
+    copy.textContent = "Copied!";
+    copy.style.backgroundColor = "var(--tcolor)";
+
+    setInterval(
+        function () {
+            copy.textContent = "Share";
+            copy.style.backgroundColor = "var(--pcolor)";
+        },
+        2500,
+    );
+})
+
 
 function UC() {
     const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
     var numItems = allChecked.length;
-    points.textContent = `${numItems}/${temaSemana.length}`;
+    points.textContent = `${numItems}/${n}`;
 };
 
 while (i < n) {
