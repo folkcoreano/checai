@@ -3,11 +3,9 @@ const title = document.querySelector("#title");
 const points = document.querySelector("#points");
 const options = document.querySelector("#options");
 const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
-
 const copyButton = document.querySelector("#copyButton");
 
 const tema = [
-    { item: "Animes!" },
     { item: "Dragon Ball" },
     { item: "Attack on Titan" },
     { item: "Fullmetal Alchemist" },
@@ -110,14 +108,20 @@ const tema = [
     { item: "Perfect Blue" },
 ];
 
-var nomeTema = tema[0].item;
+const temaInfo = [
+    { item: "Animes!" },
+    { item: "Marque os que você viu pelo menos UMA temporada!" },
+];
+
+var nomeTema = temaInfo[0].item;
+var descTema = temaInfo[1].item;
 var temaSemana = tema;
 var numItems = allChecked.length;
-var i = 1;
-var n = temaSemana.length - 1;
+var i = 0;
+var n = temaSemana.length;
 
-title.textContent = `Checaí: ${nomeTema}`
-theme.innerHTML = `Tema da Semana: ${nomeTema}<br>Marque os que você viu pelo menos UMA temporada!`;
+title.textContent = `Checaí: ${nomeTema}`;
+theme.innerHTML = `Tema da Semana: ${nomeTema}<br>${descTema}`;
 points.textContent = `${numItems}/${n}`;
 
 copyButton.addEventListener('click', () => {
@@ -137,7 +141,7 @@ copyButton.addEventListener('click', () => {
         },
         2500,
     );
-})
+});
 
 function UC() {
     const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -150,14 +154,13 @@ function UC() {
 
     if (numItems > calc00) {
         points.style.backgroundColor = "var(--bcolor)";
-    }
+    };
     if (numItems >= calc50) {
         points.style.backgroundColor = "var(--scolor)";
-    }
+    };
     if (numItems >= calc70) {
         points.style.backgroundColor = "var(--tcolor)";
-    }
-
+    };
 };
 
 while (i < n) {
