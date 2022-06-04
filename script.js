@@ -4,7 +4,7 @@ const points = document.querySelector("#points");
 const options = document.querySelector("#options");
 const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
 
-const copy = document.querySelector("#copy");
+const copyButton = document.querySelector("#copyButton");
 
 const tema = [
     { item: "Animes!" },
@@ -120,30 +120,44 @@ title.textContent = `Checaí: ${nomeTema}`
 theme.innerHTML = `Tema da Semana: ${nomeTema}<br>Marque os que você viu pelo menos UMA temporada!`;
 points.textContent = `${numItems}/${n}`;
 
-copy.addEventListener('click', () => {
+copyButton.addEventListener('click', () => {
     const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
     var numItems = allChecked.length;
     const textCopy = `Hoje no CHECAÍ marquei ${numItems}/${n} no tema ${nomeTema}\n\nhttps://checai.vercel.app`;
 
     navigator.clipboard.writeText(textCopy);
 
-    copy.textContent = "Copied!";
-    copy.style.backgroundColor = "var(--tcolor)";
+    copyButton.textContent = "Copied!";
+    copyButton.style.backgroundColor = "var(--tcolor)";
 
     setInterval(
         function () {
-            copy.textContent = "Share";
-            copy.style.backgroundColor = "var(--pcolor)";
+            copyButton.textContent = "Share";
+            copyButton.style.backgroundColor = "var(--scolor)";
         },
         2500,
     );
 })
 
-
 function UC() {
     const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
     var numItems = allChecked.length;
     points.textContent = `${numItems}/${n}`;
+
+    calc00 = n / 100 * 00;
+    calc50 = n / 100 * 50;
+    calc70 = n / 100 * 70;
+
+    if (numItems > calc00) {
+        points.style.backgroundColor = "var(--bcolor)";
+    }
+    if (numItems >= calc50) {
+        points.style.backgroundColor = "var(--scolor)";
+    }
+    if (numItems >= calc70) {
+        points.style.backgroundColor = "var(--tcolor)";
+    }
+
 };
 
 while (i < n) {
