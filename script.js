@@ -1,6 +1,7 @@
 const theme = document.querySelector("#theme");
 const title = document.querySelector("#title");
 const points = document.querySelector("#points");
+const easter = document.querySelector(".easter");
 const options = document.querySelector("#options");
 const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
 const copyButton = document.querySelector("#copyButton");
@@ -123,6 +124,7 @@ var n = temaSemana.length;
 title.textContent = `Checaí: ${nomeTema}`;
 theme.innerHTML = `Tema da Semana: ${nomeTema}<br>${descTema}`;
 points.textContent = `${numItems}/${n}`;
+easter.style.display = "block";
 
 copyButton.addEventListener('click', () => {
     const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -148,22 +150,32 @@ function UC() {
     var numItems = allChecked.length;
     points.textContent = `${numItems}/${n}`;
 
-    calc00 = n / 100 * 00;
     calc50 = n / 100 * 50;
     calc70 = n / 100 * 70;
 
-    if (numItems > calc00) {
+    if (numItems > 0) {
         points.style.backgroundColor = "var(--bcolor)";
+        points.style.animation = "";
+        easter.style.transform = "";
     };
     if (numItems >= calc50) {
         points.style.backgroundColor = "var(--scolor)";
+        points.style.animation = "";
+        easter.style.transform = "";
+    };
+    if (numItems == 69) {
+        points.style.backgroundColor = "var(--scolor)";
+        points.style.animation = "";
+        easter.style.transform = "translateX(0.5em)";
     };
     if (numItems >= calc70) {
         points.style.backgroundColor = "var(--tcolor)";
+        points.style.animation = "vibrate 140ms infinite ease-in-out";
+        easter.style.transform = "";
     };
 };
 
 while (i < n) {
-    options.innerHTML += `<label><input type="checkbox" onclick="UC()" class="cb select"><h4 id="line">${temaSemana[i].item}</h4></label>`;
+    options.innerHTML += `<label class="item"><input type="checkbox" onclick="UC()" class="cb select"><h4 id="line">${temaSemana[i].item}</h4></label>`;
     i++;
 };

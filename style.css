@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@keyframes vibrate {
+    0% {
+        transform: translate(0)
+    }
+
+    20% {
+        transform: translate(-1px, 1px)
+    }
+
+    40% {
+        transform: translate(-1px, -1px)
+    }
+
+    60% {
+        transform: translate(1px, 1px)
+    }
+
+    80% {
+        transform: translate(1px, -1px)
+    }
+
+    100% {
+        transform: translate(0)
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+:root {
+    --pcolor: #3099b1;
+    --scolor: #fcd77f;
+    --tcolor: #ff2e4d;
+    --bcolor: #ffffff;
+    --fcolor: #000000;
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--pcolor);
+    padding: 0.5em 0.0em;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    background: var(--bcolor);
+    border-radius: 0.0em 0.0em 0.0em 0.5em;
+    height: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bcolor);
+    border-radius: 0.0em 0.0em 0.0em 0.5em;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--fcolor);
+    border-radius: 0.0em 0.0em 0.0em 0.5em;
+}
+
+header,
+footer {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.container {
+    background-color: var(--bcolor);
+    border: var(--fcolor) 0.3em solid;
+    border-radius: 0.0em 1.0em;
+    padding: 0.5em 2.0em;
+    margin: 0.3em;
+    word-wrap: normal;
+    word-break: break-all;
+    width: fit-content;
+}
+
+#bold-italic {
+    font-style: italic;
+    font-weight: 700;
+}
+
+#logo {
+    text-transform: uppercase;
+    font-size: 3em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.iconify {
+    color: var(--pcolor);
+    font-size: 1.35em;
+}
+
+#theme {
+    text-align: center;
+    line-height: 1.5em;
+}
+
+
+.button {
+    border: var(--fcolor) 0.25em solid;
+    border-radius: 0.0em 0.5em;
+    padding: 0.5em;
+    margin: 0.3em;
+    background-color: var(--bcolor);
+    user-select: none;
+    z-index: 2;
+}
+
+.easter {
+    position: relative;
+    z-index: 1;
+    font-size: 2em;
+    transform: translateY(-0.05em);
+    transform: translateX(1.5em);
+    transition: 250ms linear;
+    display: none;
+}
+
+#copyButton {
+    background-color: var(--scolor);
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+a,
+a:visited {
+    text-decoration: none;
+    border-radius: 0.3em;
+    padding: 0.2em 0.1em;
+    color: var(--fcolor);
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: var(--scolor);
+    color: var(--fcolor);
+}
+
+
+label {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+}
+
+.cb {
+    border: 0.275em solid var(--fcolor);
+    -webkit-appearance: none;
+    justify-content: center;
+    -moz-appearance: none;
+    aspect-ratio: 1 / 1;
+    margin-right: 0.1em;
+    align-items: center;
+    appearance: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    height: 1.5em;
+    width: 1.5em;
+}
+
+.cb:checked::after {
+    background-color: var(--fcolor);
+    aspect-ratio: 1/1;
+    height: 1.5em;
+    width: 1.5em;
+    content: "";
+}
+
+.main {
+    padding: 0.25em;
+}
+
+.menu {
+    justify-content: end;
+    align-items: center;
+    display: flex;
+}
+
+#options {
+    flex-direction: column;
+    overflow-x: auto;
+    flex-wrap: wrap;
+    max-width: 90vw;
+    display: flex;
+    height: 42em;
+    width: 50em;
+}
+
+.item {
+    margin: 0.11em 0.0em;
+}
