@@ -38,6 +38,7 @@
     --tcolor: #ff2e4d;
     --bcolor: #ffffff;
     --fcolor: #000000;
+    --size: 56em;
 }
 
 body {
@@ -142,8 +143,9 @@ footer {
 a,
 a:visited {
     text-decoration: none;
-    border-radius: 0.3em;
-    padding: 0.2em 0.1em;
+    border-bottom: 0.2em solid var(--fcolor);
+    border-radius: 0.24em;
+    padding: 0.0em 0.1em;
     color: var(--fcolor);
     cursor: pointer;
 }
@@ -201,9 +203,13 @@ label {
     max-width: 90vw;
     display: flex;
     height: 42em;
-    width: 50em;
+    width: var(--size)
 }
 
 .item {
     margin: 0.11em 0.0em;
+}
+
+footer {
+    line-height: 1.8em;
 }
