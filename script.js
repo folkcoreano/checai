@@ -1,5 +1,4 @@
 const theme = document.querySelector("#theme");
-const title = document.querySelector("#title");
 const points = document.querySelector("#points");
 const easter = document.querySelector(".easter");
 const options = document.querySelector("#options");
@@ -121,7 +120,7 @@ var numItems = allChecked.length;
 var i = 0;
 var n = temaSemana.length;
 
-title.textContent = `Checaí: ${nomeTema}`;
+document.title = `Checaí: ${nomeTema}`;
 theme.innerHTML = `Tema da semana: ${nomeTema}<br>${descTema}`;
 points.textContent = `${numItems}/${n}`;
 easter.style.display = "block";
@@ -175,7 +174,6 @@ function UC() {
     };
 };
 
-while (i < n) {
-    options.innerHTML += `<label class="item"><input type="checkbox" onclick="UC()" class="cb select"><h4 id="line">${temaSemana[i].item}</h4></label>`;
-    i++;
-};
+const lista = tema.map(({ item }) => {
+    options.innerHTML += `<label class="item"><input type="checkbox" onclick="UC()" class="cb select"><h4 id="line">${item}</h4></label>`;
+});
