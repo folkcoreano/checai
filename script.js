@@ -4,6 +4,7 @@ const easter = document.querySelector(".easter");
 const options = document.querySelector("#options");
 const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
 const copyButton = document.querySelector("#copyButton");
+const clear = document.querySelector("#clear");
 
 const tema = [
     { item: "Easy A" },
@@ -108,13 +109,10 @@ const tema = [
     { item: "Let it Snow" },
 ];
 
-const temaInfo = [
-    { item: "filmes de adolescente!" },
-    { item: "Marque todos os que você já viu!" },
-];
+const temaInfo = ["filmes de adolescente!", "Marque todos os que você já viu!"];
 
-var nomeTema = temaInfo[0].item;
-var descTema = temaInfo[1].item;
+var nomeTema = temaInfo[0];
+var descTema = temaInfo[1];
 var temaSemana = tema;
 var numItems = allChecked.length;
 var i = 0;
@@ -124,6 +122,14 @@ document.title = `Checaí: ${nomeTema}`;
 theme.innerHTML = `Tema da semana: ${nomeTema}<br>${descTema}`;
 points.textContent = `${numItems}/${n}`;
 easter.style.display = "block";
+
+clear.addEventListener('click', () => {
+    clear.style.backgroundColor = "var(--tcolor)";
+
+    setTimeout(() => {
+        location.reload()
+    }, 500)
+});
 
 copyButton.addEventListener('click', () => {
     const allChecked = document.querySelectorAll('input[type="checkbox"]:checked');
@@ -135,13 +141,10 @@ copyButton.addEventListener('click', () => {
     copyButton.textContent = "Copied!";
     copyButton.style.backgroundColor = "var(--tcolor)";
 
-    setInterval(
-        function () {
-            copyButton.textContent = "Share";
-            copyButton.style.backgroundColor = "var(--scolor)";
-        },
-        2500,
-    );
+    setTimeout(() => {
+        copyButton.textContent = "Share";
+        copyButton.style.backgroundColor = "var(--scolor)";
+    }, 1500)
 });
 
 function UC() {
@@ -175,5 +178,6 @@ function UC() {
 };
 
 const lista = tema.map(({ item }) => {
-    options.innerHTML += `<label class="item"><input type="checkbox" onclick="UC()" class="cb select"><h4 id="line">${item}</h4></label>`;
+    options.innerHTML += `<label class="item"><input type="checkbox" onclick="UC()" class="cb select" id="${i}"><h4 id="line">${item}</h4></label>`;
+    i++
 });

@@ -189,8 +189,18 @@ label {
 }
 
 .menu {
-    justify-content: end;
+    display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.25em;
+}
+
+#clear {
+    border-radius: 0.5em;
+    cursor: pointer;
+}
+
+.side {
     display: flex;
 }
 
